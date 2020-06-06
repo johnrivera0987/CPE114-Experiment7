@@ -1,0 +1,30 @@
+module recursive_function();
+function automatic [31:0] prod;
+	input [7:0] number;
+	input [7:0] num2;
+ 
+	begin
+  
+		if(num2 > 0)
+		begin 
+			prod = number + prod(number, num2-1);
+			end
+		else
+		begin
+			prod = 0;
+		end  
+	end
+endfunction
+ 
+	initial begin
+		$display("Multiplicand:	   5");
+		$display("Multiplier:	   2");	
+		$display("Product = %d", prod(5,2));
+		$display("Multiplicand: 	  6");
+		$display("Multiplier:	   3");	
+		$display("Product = %d", prod(6,3));
+		$display("Multiplicand: 	  1");
+		$display("Multiplier: 	  2");	
+		$display("Product = %d", prod(1,2));
+	end
+endmodule 
